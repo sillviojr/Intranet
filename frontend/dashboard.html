@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Intranet!</h1>
+    <h2 id="welcomeMessage"></h2>
+
+    <button id="logoutBtn">Sair</button>
+
+    <script>
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+            window.location.href = "index.html"; // Se não houver token, volta ao login
+        } else {
+            fetch("http://localhost:3000/dashboard", {
+                method: "GET",
+                headers: { "Authorization": `Bearer ${token}` }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        localStorage.removeItem("token");
+                        window.location.href = "index.html"; // Remove token inválido e redireciona
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById("welcomeMessage").innerText = data.message;
+                })
+                .catch(() => {
+                    localStorage.removeItem("token");
+                    window.location.href = "index.html";
+                });
+        }
+
+        document.getElementById("logoutBtn").addEventListener("click", function () {
+            localStorage.removeItem("token");
+            window.location.href = "index.html"; // Volta para a tela de login
+        });
+    </script>
+</body>
+
+</html>
