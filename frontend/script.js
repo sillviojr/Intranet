@@ -4,7 +4,7 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    console.log("Tentando logar com:", username, password); // 🔹 Verifica os valores enviados
+    //console.log("Tentando logar com:", username, password); // Verifica os valores enviados
 
     fetch("http://localhost:3000/login", {
         method: "POST",
@@ -13,11 +13,11 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     })
     .then(response => response.json())
     .then(data => {
-        console.log("Resposta do login:", data); // 🔹 Verifica a resposta do backend
+        //console.log("Resposta do login:", data); // Verifica a resposta do backend
 
         if (data.success) {
             localStorage.setItem("token", data.token);
-            console.log("Token salvo no LocalStorage:", localStorage.getItem("token")); // 🔹 Confirma que o token foi salvo
+            //console.log("Token salvo no LocalStorage:", localStorage.getItem("token")); // Confirma que o token foi salvo
             window.location.href = "dashboard.html";
         } else {
             alert("Login falhou!");

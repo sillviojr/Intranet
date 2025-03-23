@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="imagens" href="/frontend/imagens/icon_pag.png">
     <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -18,7 +19,7 @@
         const token = localStorage.getItem("token");
 
         if (!token) {
-            window.location.href = "index.html"; // Se não houver token, volta ao login
+            window.location.href = "index.html";
         } else {
             fetch("http://localhost:3000/dashboard", {
                 method: "GET",
@@ -27,7 +28,7 @@
                 .then(response => {
                     if (!response.ok) {
                         localStorage.removeItem("token");
-                        window.location.href = "index.html"; // Remove token inválido e redireciona
+                        window.location.href = "index.html";
                     }
                     return response.json();
                 })
@@ -42,7 +43,7 @@
 
         document.getElementById("logoutBtn").addEventListener("click", function () {
             localStorage.removeItem("token");
-            window.location.href = "index.html"; // Volta para a tela de login
+            window.location.href = "index.html";
         });
     </script>
 </body>
