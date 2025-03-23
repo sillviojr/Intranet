@@ -1,7 +1,7 @@
 # 🚀 Intranet
 
 ## 📌 Sobre o Projeto
-A **Intranet** é um sistema interno desenvolvido para empresas, permitindo a autenticação de usuários via **Active Directory (AD)** e proporcionando um ambiente seguro para consulta de e-mails e ramais.
+A **Intranet** é um sistema interno desenvolvido para empresas, permitindo a autenticação de usuários via **Active Directory (AD)**(como não estou em ambiente corporativo, não deixei a estrutura do código com a autenticação do AD feito, mas daqui para o final irei colocar) e proporcionando um ambiente seguro para consulta de e-mails e ramais.
 
 ## 🔒 Funcionalidades
 - Login integrado ao **Active Directory**
@@ -40,7 +40,7 @@ cd Intranet
 ### 🔹 2. Configurar o Backend
 ```bash
 cd backend
-npm install  # Instalar dependências
+npm install  # Instalar dependências (é necessário ter instalado o Node.js na máquina para rodar)
 cp .env.example .env  # Criar arquivo de configuração
 node server.js  # Iniciar o servidor
 ```
