@@ -6,11 +6,165 @@ body {
     width: 400px;
 }
 
-.logo-grupo-index{
+.logo-grupo-index {
     align-items: center;
-    width: 160px; 
+    width: 160px;
     height: auto;
     position: absolute;
     top: 20px;
     left: 110px;
+}
+
+
+
+.avatar {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    left: auto;
+    position: center;
+}
+
+
+/* CSS para a sidebar fixa */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #343a40;
+    color: white;
+    padding-top: 20px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Ajustando a centralização do avatar e nome do usuário */
+.sidebar .sidebar-header {
+    text-align: center; /* Centraliza o conteúdo dentro do cabeçalho */
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.sidebar .avatar {
+    width: 80px; /* Define um tamanho fixo para o avatar */
+    height: 80px;
+    border-radius: 50%; /* Faz o avatar ficar redondo */
+    margin: 0 auto 10px; /* Adiciona um pequeno espaçamento abaixo do avatar e centraliza */
+    display: block; /* Garante que o avatar seja um bloco para aplicar o "auto" nas margens */
+}
+
+.sidebar .username {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Ajuste na lista de links */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.sidebar ul li {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+/* Centralizando o botão "Sair" na parte inferior da sidebar */
+#logoutBtn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#logoutBtn:hover {
+    background-color: #e60000;
+}
+
+/* Ajustando o conteúdo principal para não ficar escondido atrás da sidebar */
+.main-content {
+    margin-left: 250px; /* Garantindo o espaço à esquerda para a sidebar */
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Responsividade: Ajustando para telas pequenas */
+@media (max-width: 768px) {
+    /* Reduz a largura da sidebar em telas menores */
+    .sidebar {
+        width: 200px;
+    }
+
+    /* Ajusta o tamanho do botão "Sair" */
+    #logoutBtn {
+        width: 80%;
+        padding: 8px 0;
+    }
+
+    /* Ajusta o conteúdo principal */
+    .main-content {
+        margin-left: 200px; /* Ajusta a margem da sidebar em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Em telas muito pequenas, a sidebar pode ser recolhida e ocupar toda a tela */
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 10px;
+    }
+
+    /* Ajusta o botão "Sair" em telas pequenas */
+    #logoutBtn {
+        width: 100%;
+        position: relative;
+        bottom: 0;
+        transform: none;
+        padding: 8px 0;
+    }
+
+    /* Ajuste na lista para ser responsiva */
+    .sidebar ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .sidebar ul li {
+        margin: 5px 0;
+    }
+
+    /* Ajusta o conteúdo principal para ficar responsivo */
+    .main-content {
+        margin-left: 0; /* Remove a margem quando a sidebar for adaptada para telas pequenas */
+    }
 }

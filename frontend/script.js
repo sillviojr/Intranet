@@ -11,17 +11,17 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password })
     })
-    .then(response => response.json())
-    .then(data => {
-        //console.log("Resposta do login:", data); // Verifica a resposta do backend
+        .then(response => response.json())
+        .then(data => {
+            //console.log("Resposta do login:", data); // Verifica a resposta do backend
 
-        if (data.success) {
-            localStorage.setItem("token", data.token);
-            //console.log("Token salvo no LocalStorage:", localStorage.getItem("token")); // Confirma que o token foi salvo
-            window.location.href = "dashboard.html";
-        } else {
-            alert("Login falhou!");
-        }
-    })
-    .catch(error => console.error("Erro no login:", error));
+            if (data.success) {
+                localStorage.setItem("token", data.token);
+                //console.log("Token salvo no LocalStorage:", localStorage.getItem("token")); // Confirma que o token foi salvo
+                window.location.href = "dashboard.html";
+            } else {
+                alert("Login falhou!");
+            }
+        })
+        .catch(error => console.error("Erro no login:", error));
 });

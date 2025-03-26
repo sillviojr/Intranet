@@ -10,10 +10,29 @@
 </head>
 
 <body>
-    <h1>Intranet!</h1>
-    <h2 id="welcomeMessage"></h2>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="/frontend/imagens/icon_pag.png" alt="Avatar" class="avatar">
+                <span id="username">Usuário</span>
+            </div>
+            <ul>
+                <li><a href="#">📧 Emails</a></li>
+                <li><a href="#">📞 Ramais</a></li>
+                <li><a href="#">📚 Treinamento</a></li>
+                <li><a href="#">🔧 GLPI</a></li>
+            </ul>
+            <br>
+            <button id="logoutBtn">Sair</button>
+        </div>
 
-    <button id="logoutBtn">Sair</button>
+        <!-- Conteúdo principal -->
+        <div class="main-content">
+            <h1>Intranet Grupo Ocaporã</h1>
+            <h2 id="welcomeMessage"></h2>
+        </div>
+    </div>
 
     <script>
         const token = localStorage.getItem("token");
@@ -45,6 +64,10 @@
             localStorage.removeItem("token");
             window.location.href = "index.html";
         });
+
+
+
+
     </script>
 </body>
 
